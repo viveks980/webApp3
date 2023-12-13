@@ -1,0 +1,176 @@
+﻿@model WebApplication3.Models.getCollege
+@{
+    Layout = null;
+
+}
+
+
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+</head>
+<body style="background-color:antiquewhite">
+
+    <nav style="padding: 0px; background-color: #0c4da2" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="~/Images/logo.jpg" style="margin-left:15%;" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" style="color:white" href="@Url.Action("GetRoleList","User")">&nbsp;Role &nbsp; Master</a>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" style="color:white" href="@Url.Action("GetDepList","User")">Department Master</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" style="color:white" href="@Url.Action("GetStudentList","User")">Student Master</a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" style="margin-left: 720px; color: white" href="@Url.Action("display","Project")">Logout</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div style="padding:3%" class="container mt-5 w-50">
+
+
+        <form id="roleForm" style="border-radius:15px;padding:5%;background:white;">
+            <div class="d-none"><input type="text" value="@Model.clg_id" class="form-control" id="clg_id" name="clg_id" required></div>
+            <h2 class="mb-4">College Master Form</h2>
+            <div class="form-group">
+                <label for="roleName">College Name:</label>
+                <input type="text" value="@Model.CollegeName" class="form-control" id="cglName" name="CollegeName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="roleDesignation">College Fees:</label>
+                <input type="text" class="form-control" id="fees" value="@Model.fees" name="fees" required>
+            </div>
+            <div class="form-group">
+                <label for="roleDesignation">Admission Date :</label>
+                <input type="text" class="form-control" id="AddmissionDate" value="@Model.AddmissionDate.ToString("dd/MM/yyyy")" name="AddmissionDate" readonly>
+            </div><br />
+            <div class="mb-3">
+
+                <label for="Student Name" class="form-label">
+
+                    Student Name
+
+                </label>
+
+                @Html.DropDownList("stu_Name", ViewBag.stuname as SelectList, Model.firstName, new { @class = "formcheck", id = "studentId" })
+
+            </div>
+            <div class="mb-3">
+
+                <label for="Brnach Name" class="form-label">
+
+                    Branch Name
+
+                </label>
+
+                @Html.DropDownList("branch", ViewBag.DepBranch as SelectList, Model.branchName, new { @class = "formcheck", id = "branchId" })
+
+            </div>
+            <div class="mb-3">
+
+                <label for="Role Designation" class="form-label">
+
+                    Role Designation
+
+                </label>
+
+                @Html.DropDownList("desination", ViewBag.roleDes as SelectList, Model.Role_designation, new { @class = "formcheck", id = "Role_id" })
+
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="Payment" name="Is_Payment" @(Model.Is_Payment ? "checked" : "")>
+                    <label class="form-check-label" for="isActive">Is Payment</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="isActive" name="Is_active" @(Model.Is_active ? "checked" : "")>
+
+                    <label class="form-check-label" for="isActive">Is Active</label>
+                </div>
+            </div> <br />
+            <br />
+
+            <button id="update" type="submit" style="background-color: #0c4da2" class="btn btn-primary">Update</button>
+            <button id="cancel" class="btn btn-secondary">Cancel</button>
+        </form>
+    </div>
+
+
+
+
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('#update').click(function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+
+
+
+            let clg_id = $('#clg_id').val();
+            debugger;
+            let CollegeName = $('#cglName').val();
+            let fees = $('#fees').val();
+            let AddmissionDate = $('#AddmissionDate').val();
+            let StudentName = $('#studentId').val();
+            let branchName = $('#branchId').val();
+            let RoleDesignation = $('#Role_id').val();
+            let Is_active = $('#isActive').prop('checked');
+            let Is_Payment = $('#Payment').prop('checked');
+
+
+            
+            let obj = {
+                clg_id: clg_id,
+                CollegeName: CollegeName,
+                fees: fees,
+                AddmissionDate: AddmissionDate,
+                StudentName: StudentName,
+                branchName: branchName,
+                RoleDesignation: RoleDesignation,
+                Is_active: Is_active,
+                Is_Payment: Is_Payment
+            };
+
+            $.ajax({
+                url: "/User/updateCollege",
+                type: "POST",
+                data: obj,
+                success: function (data) {
+                    alert("Data updated successfully...!!");
+                    location.reload();
+                    window.location.href = "GetAddmissionList"
+                },
+                error: function (err) {
+                    console.error(err.message);
+                    return;
+                },
+            });
+        });
+    });
+
+</script>

@@ -1,0 +1,26 @@
+DD-11-2023 18-17-16The error is:System.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'vivek@gmail.com' to data type int.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at WebApplication3.Dal.signUpClass.adduser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 49
+ClientConnectionId:5675ddb2-248a-4a05-a652-76e603447ab8
+Error Number:245,State:1,Class:16
+DD-11-2023 18-24-40The error is:System.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'vivek@gmail.com' to data type int.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at WebApplication3.Dal.signUpClass.adduser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 49
+ClientConnectionId:cb90bce1-720b-4b5f-bbc0-4b635dd98345
+Error Number:245,State:1,Class:16

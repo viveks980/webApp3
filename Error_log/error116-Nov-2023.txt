@@ -1,0 +1,79 @@
+DD-11-2023 10-45-07The error is:System.Net.Mail.SmtpException: Failure sending mail.
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Dns.InternalGetHostByName(String hostName)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+   at System.Net.Mail.SmtpConnection.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpTransport.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at WebApplication3.Dal.signUpClass.adduser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 124
+DD-11-2023 10-50-40The error is:System.Net.Mail.SmtpException: Failure sending mail.
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Dns.InternalGetHostByName(String hostName)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+   at System.Net.Mail.SmtpConnection.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpTransport.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at WebApplication3.Dal.signUpClass.adduser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 124
+DD-11-2023 11-03-29The error is:System.FormatException: An invalid character was found in the mail header: '@'.
+   at System.Net.Mail.MailAddressParser.ParseLocalPart(String data, Int32& index, Boolean expectAngleBracket, Boolean expectMultipleAddresses)
+   at System.Net.Mail.MailAddressParser.ParseAddress(String data, Boolean expectMultipleAddresses, Int32& index)
+   at System.Net.Mail.MailAddressParser.ParseMultipleAddresses(String data)
+   at System.Net.Mail.MailAddressCollection.ParseValue(String addresses)
+   at System.Net.Mail.MailAddressCollection.Add(String addresses)
+   at WebApplication3.Dal.signUpClass.adduser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 104
+DD-11-2023 15-25-50The error is:System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ValidateLogin' expects parameter '@userId', which was not supplied.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at WebApplication3.Dal.signUpClass.loginUser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 250
+ClientConnectionId:344534ab-6681-4c84-85bc-3f275709cdf3
+Error Number:201,State:4,Class:16
+DD-11-2023 15-26-57The error is:System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ValidateLogin' expects parameter '@userId', which was not supplied.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at WebApplication3.Dal.signUpClass.loginUser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 250
+ClientConnectionId:69c342b8-74da-4172-98da-9e4e77b0ae87
+Error Number:201,State:4,Class:16
+DD-11-2023 18-09-52The error is:System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ValidateLogin' expects parameter '@userId', which was not supplied.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at WebApplication3.Dal.signUpClass.loginUser(RegisterModel objmodel) in C:\Users\vivek\source\repos\WebApplication3\Dal\signUpClass.cs:line 250
+ClientConnectionId:a3a6cb9b-5ee0-40fd-991e-1271483fcea2
+Error Number:201,State:4,Class:16

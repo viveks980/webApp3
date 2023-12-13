@@ -1,0 +1,156 @@
+﻿@model WebApplication3.Models.StudentModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>editStudent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body style="background-color:antiquewhite">
+
+    <nav style="padding: 0px; background-color: #0c4da2" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="~/Images/logo.jpg" style="margin-left:15%;" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" style="color:white" href="@Url.Action("Index","User")">&nbsp;Role &nbsp; Master</a>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" style="color:white" href="@Url.Action("Department_master","User")">Department Master</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" style="color:white" href="@Url.Action("Student_master","User")">Student Master</a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" style="margin-left: 720px; color: white" href="@Url.Action("Login","Login")">Logout</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding:3%" class="container mt-5 w-50">
+
+        <h2 style="color: #19234F;margin-left:25%;"><b>Student Master</b></h2>
+        <div class="d-none"><input type="text" value="@Model.studentId" class="form-control" id="studentId" name="branchName" required></div>
+
+        <form id="roleForm" style="border-radius:15px;padding:5%;background:white;">
+
+            <div class="mb-3">
+
+                <label for="firstName" class="form-label"><b>First Name</b></label>
+
+                <input type="text" class="form-control" id="firstName" name="firstName" value="@Model.firstName" required>
+
+            </div>
+
+
+
+            <div class="mb-3">
+
+                <label for="session" class="form-label"><b>Session</b></label>
+
+                <input type="text" class="form-control" value="@Model.session" id="session" name="session" required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="email" class="form-label"><b>Email</b></label>
+
+                <input type="email" class="form-control" value="@Model.email" id="email" name="email" required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="phoneNo" class="form-label"><b>Phone Number</b></label>
+
+                <input type="tel" class="form-control" value="@Model.phoneNo" id="phoneNo" name="phoneNo" required>
+
+            </div>
+
+            <div class="mb-3 form-check" style="display:flex;">
+
+                <input type="checkbox" class="form-check-input" id="isActive" name="isActive" @(Model.isActive ? "checked" : "")>&nbsp;&nbsp;
+
+                <label class="form-check-label" value="@Model.isActive" for="isActive"><b>Is Active</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <input type="checkbox" class="form-check-input" id="isDeleted" name="isDeleted" @(Model.isDeleted ? "checked" : "")>&nbsp;&nbsp;
+               
+                <label class="form-check-label" value="@Model.isDeleted" for="isDeleted"><b>Is Deleted</b></label>
+
+            </div>
+
+            <button id="update" type="submit" style="background-color: #0c4da2" class="btn btn-primary">Update</button>
+            <button id="cancel" class="btn btn-secondary">Cancel</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('#update').click(function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+
+
+
+            let studentId = $('#studentId').val();
+            debugger;
+            let firstName = $('#firstName').val();
+            let session = $('#session').val();
+            let email = $('#email').val();
+            let phoneNo = $('#phoneNo').val();
+            let isActive = $('#isActive').prop('checked');
+            let isDeleted = $('#isDeleted').prop('checked');
+
+
+
+            let obj = {
+                studentId: studentId,
+                firstName: firstName,
+                session: session,
+                email: email,
+                phoneNo: phoneNo,
+                isActive: isActive,
+                isDeleted: isDeleted
+            };
+
+            $.ajax({
+                url: "/User/updateStudent",
+                type: "POST",
+                data: obj,
+                success: function (data) {
+                    alert("Data updated successfully...!!");
+                    location.reload();
+                    window.location.href ="GetStudentList"
+                },
+                error: function (err) {
+                    console.error(err.message);
+                    return;
+                },
+            });
+        });
+    });
+
+</script>
